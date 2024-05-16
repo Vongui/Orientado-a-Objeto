@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * @author aluno
+ * @author Vongui
  */
 public class Main {
     
