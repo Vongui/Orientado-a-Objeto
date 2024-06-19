@@ -38,6 +38,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jmCadastros = new javax.swing.JMenu();
         jmiPessoa = new javax.swing.JMenuItem();
+        jmiCadastrar = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jmSair = new javax.swing.JMenu();
 
@@ -54,6 +55,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jmCadastros.add(jmiPessoa);
+
+        jmiCadastrar.setText("Cadastrar");
+        jmiCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCadastrarActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiCadastrar);
 
         jMenuItem1.setText("Dialog");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +117,12 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jmiCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCadastrarActionPerformed
+        // TODO add your handling code here:
+        PessoaForm pf = new PessoaForm(this, true);
+        pf.setVisible(true);
+    }//GEN-LAST:event_jmiCadastrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,6 +163,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmCadastros;
     private javax.swing.JMenu jmSair;
+    private javax.swing.JMenuItem jmiCadastrar;
     private javax.swing.JMenuItem jmiPessoa;
     private javax.swing.JLabel lPessoaAutenticada;
     // End of variables declaration//GEN-END:variables
