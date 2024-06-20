@@ -40,13 +40,13 @@ public class Principal extends javax.swing.JFrame {
         jmiPessoa = new javax.swing.JMenuItem();
         jmiCadastrar = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jmSair = new javax.swing.JMenu();
+        jmiSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lPessoaAutenticada.setText("jLabel1");
 
-        jmCadastros.setText("Cadastros");
+        jmCadastros.setText("Opções");
 
         jmiPessoa.setText("Pessoa");
         jmiPessoa.addActionListener(new java.awt.event.ActionListener() {
@@ -72,10 +72,15 @@ public class Principal extends javax.swing.JFrame {
         });
         jmCadastros.add(jMenuItem1);
 
-        jMenuBar1.add(jmCadastros);
+        jmiSair.setText("Sair");
+        jmiSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSairActionPerformed(evt);
+            }
+        });
+        jmCadastros.add(jmiSair);
 
-        jmSair.setText("Sair");
-        jMenuBar1.add(jmSair);
+        jMenuBar1.add(jmCadastros);
 
         setJMenuBar(jMenuBar1);
 
@@ -123,6 +128,11 @@ public class Principal extends javax.swing.JFrame {
         pf.setVisible(true);
     }//GEN-LAST:event_jmiCadastrarActionPerformed
 
+    private void jmiSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSairActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jmiSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -162,9 +172,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmCadastros;
-    private javax.swing.JMenu jmSair;
     private javax.swing.JMenuItem jmiCadastrar;
     private javax.swing.JMenuItem jmiPessoa;
+    private javax.swing.JMenuItem jmiSair;
     private javax.swing.JLabel lPessoaAutenticada;
     // End of variables declaration//GEN-END:variables
 }

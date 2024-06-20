@@ -7,7 +7,6 @@ import java.awt.Component;
 import java.awt.Frame;
 import java.util.Date;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,8 +54,6 @@ public class PessoaForm extends javax.swing.JDialog {
         tfSalario = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         bCadastrar = new javax.swing.JButton();
-        bAlterar = new javax.swing.JButton();
-        bExcluir = new javax.swing.JButton();
         bGravar = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
 
@@ -104,28 +101,6 @@ public class PessoaForm extends javax.swing.JDialog {
             }
         });
 
-        bAlterar.setBackground(new java.awt.Color(51, 153, 255));
-        bAlterar.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
-        bAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        bAlterar.setText("Alterar");
-        bAlterar.setBorderPainted(false);
-        bAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAlterarActionPerformed(evt);
-            }
-        });
-
-        bExcluir.setBackground(new java.awt.Color(51, 153, 255));
-        bExcluir.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
-        bExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        bExcluir.setText("Excluir");
-        bExcluir.setBorderPainted(false);
-        bExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bExcluirActionPerformed(evt);
-            }
-        });
-
         bGravar.setBackground(new java.awt.Color(51, 153, 255));
         bGravar.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         bGravar.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,28 +128,22 @@ public class PessoaForm extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(67, 67, 67)
                 .addComponent(bCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bGravar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGap(107, 107, 107))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -302,6 +271,7 @@ public class PessoaForm extends javax.swing.JDialog {
 
         controlarVisibilidadeBotoes(true);
         controlarVisibilidadeComponentes(false);
+        limparCampos();
 
 
     }//GEN-LAST:event_bGravarActionPerformed
@@ -312,35 +282,6 @@ public class PessoaForm extends javax.swing.JDialog {
         controlarVisibilidadeComponentes(true);
         limparCampos();
     }//GEN-LAST:event_bCadastrarActionPerformed
-
-    private void bAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAlterarActionPerformed
-        controlarVisibilidadeBotoes(false);
-        controlarVisibilidadeComponentes(true);
-
-        try {
-            Pessoa pessoa = pessoaDao.getPessoa(1);
-            tfNome.setText(pessoa.getNome());
-            tfEmail.setText(pessoa.getEmail());
-            tfEndereco.setText(pessoa.getEndereco());
-            tfTelefone.setText(pessoa.getTelefone());
-            dcDataNascimento.setDate(pessoa.getDataNascimento());
-            tfSalario.setValue(pessoa.getSalario());
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR);
-        }
-
-
-    }//GEN-LAST:event_bAlterarActionPerformed
-
-    private void bExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluirActionPerformed
-        try {
-            pessoaDao.remover(1);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-    }//GEN-LAST:event_bExcluirActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
 //        controlarVisibilidadeBotoes(true);
@@ -384,10 +325,8 @@ public class PessoaForm extends javax.swing.JDialog {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bAlterar;
     private javax.swing.JButton bCadastrar;
     private javax.swing.JButton bCancelar;
-    private javax.swing.JButton bExcluir;
     private javax.swing.JButton bGravar;
     private com.toedter.calendar.JDateChooser dcDataNascimento;
     private javax.swing.JPanel jPanel2;
@@ -408,11 +347,9 @@ public class PessoaForm extends javax.swing.JDialog {
 
     private void controlarVisibilidadeBotoes(boolean status) {
         bCadastrar.setEnabled(status);
-        bAlterar.setEnabled(status);
-        bExcluir.setEnabled(status);
 
         bGravar.setEnabled(!status);
-        bCancelar.setEnabled(!status);
+        //bCancelar.setEnabled(!status);
     }
 
     private void controlarVisibilidadeComponentes(boolean status) {
